@@ -1,0 +1,21 @@
+{
+  "slug": "fernando",
+  "title": "Fernando: 40 minutes away",
+  "language": "pt",
+  "him": "Fernando",
+  "her": "Jennifer",
+  "kids": ["Josephine", "Johnny"],
+  "minutes": 40,
+  "premise": "Jennifer asks if Fernando is free this weekend. He replies with an enormous romantic future instead of driving the forty minutes to her house.",
+  "absurd_bits": [
+    "he builds a house nobody lives in, with a porch",
+    "he imagines the children, a dog called Bruno who does not exist, a poem of eleven pages",
+    "he climbs an electricity pylon with his shirt off",
+    "the car flies the last stretch and lands at her door"
+  ],
+  "her_voice": "warm, dry, a little tired, talking to someone she loves who is being ridiculous",
+  "his_voice": "grave, sincere, deadpan, a man narrating his own epic romance with total conviction",
+  "places": ["valley", "bush", "cave"],
+  "tokens": {},
+  "content_note": "the built-in content.json, content_pt.json, voice_lines.json and voice_lines_pt.json are this story's files"
+}

@@ -1,0 +1,52 @@
+{
+  "opening": "Are you free this weekend?",
+  "fantasy": [
+    "Please, don't leave me. We are going to be happy. I promise you, we are going to be happy.",
+    "I'm going to do everything I can to make us work.",
+    "I'm going to prove it to you. Believe in me. You won't regret it.",
+    "I want you more than anything in this world. I'm going to fight for us and for you.",
+    "I will live with you. Trust me.",
+    "I want you as my girlfriend, my wife, my woman, for the rest of my life."
+  ],
+  "declarations": [
+    "Please, don't leave me.",
+    "We are going to be happy. I promise you, we are going to be happy.",
+    "I'm going to prove it to you. Believe in me. You won't regret it.",
+    "I'm going to fight for us and for you.",
+    "I'll come get you in person.",
+    "I want you as my girlfriend, my wife, my woman, for the rest of my life."
+  ],
+  "declaration_replies": [
+    "Okay. When are you coming over?",
+    "Great. Then come.",
+    "YES.",
+    "Fernando. I am forty minutes away.",
+    "I asked if you were free this weekend.",
+    "Then come."
+  ],
+  "love_replies": [
+    "Yes.",
+    "Yes. When are you coming over?",
+    "Fernando. I am forty minutes away.",
+    "Yes. Then come.",
+    "I asked if you were free this weekend."
+  ],
+  "children": [
+    "Josephine. Seven. She has her mother's eyes and a better sense of direction than her father.",
+    "Johnny. Four. Refuses to get in the car. He gets it from me.",
+    "The twins. Names pending. They have opinions about the porch.",
+    "Bruno. He is a dog. He counts.",
+    "A fifth child. The house has grown to fit them all. The house is not real. I have not driven anywhere.",
+    "A sixth. At this point Jennifer would need to be involved. She is forty minutes away."
+  ],
+  "quests": [
+    "PROVE IT TO HER", "MAKE US WORK", "BUILD A HOUSE", "GET MARRIED",
+    "HAVE CHILDREN", "LIVE WITH HER", "FIGHT FOR US", "GROW OLD TOGETHER",
+    "ADOPT BRUNO (DOES NOT EXIST)", "LEARN THE CELLO", "NAME A STAR AFTER HER", "TEACH JOSEPHINE TO DRIVE",
+    "GIRLFRIEND. WIFE. WOMAN.", "COME GET HER IN PERSON"
+  ],
+  "eta_lines": [
+    "ETA: 40 MINUTES", "ETA: STILL 40 MINUTES", "ETA: 40 MINUTES. IT HAS BEEN 40 MINUTES.",
+    "ETA: 40 MINUTES (THE CAR HAS NOT MOVED)", "ETA: 40 MINUTES. IT IS GETTING LATE.", "ETA: 40 MINUTES. SHE ASKED IF YOU WERE FREE."
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "opening": "Você está livre esse fim de semana?",
+  "fantasy": [
+    "Por favor, não me deixa. Nós vamos ser felizes. Eu te prometo, nós vamos ser felizes.",
+    "Eu vou fazer tudo o que eu puder para a gente dar certo.",
+    "Eu vou provar para você. Acredita em mim. Você não vai se arrepender.",
+    "Eu te quero mais do que tudo nesse mundo. Eu vou lutar por nós e por você.",
+    "Eu vou morar com você. Confia em mim.",
+    "Eu te quero como minha namorada, minha esposa, minha mulher, pelo resto da minha vida."
+  ],
+  "declarations": [
+    "Por favor, não me deixa.",
+    "Nós vamos ser felizes. Eu te prometo, nós vamos ser felizes.",
+    "Eu vou provar para você. Acredita em mim. Você não vai se arrepender.",
+    "Eu vou lutar por nós e por você.",
+    "Eu vou te buscar pessoalmente.",
+    "Eu te quero como minha namorada, minha esposa, minha mulher, pelo resto da minha vida."
+  ],
+  "declaration_replies": [
+    "Tá. Quando você vem?",
+    "Ótimo. Então vem.",
+    "SIM.",
+    "Fernando. Eu estou a quarenta minutos.",
+    "Eu perguntei se você estava livre esse fim de semana.",
+    "Então vem."
+  ],
+  "love_replies": [
+    "Sim.",
+    "Sim. Quando você vem?",
+    "Fernando. Eu estou a quarenta minutos.",
+    "Sim. Então vem.",
+    "Eu perguntei se você estava livre esse fim de semana."
+  ],
+  "children": [
+    "Josephine. Sete anos. Tem os olhos da mãe e um senso de direção melhor que o do pai.",
+    "Johnny. Quatro anos. Se recusa a entrar no carro. Puxou a mim.",
+    "Os gêmeos. Nomes pendentes. Eles têm opiniões sobre a varanda.",
+    "Bruno. É um cachorro. Conta.",
+    "Um quinto filho. A casa cresceu para caber todos. A casa não é real. Eu não dirigi para lugar nenhum.",
+    "Um sexto. A essa altura a Jennifer precisaria estar envolvida. Ela está a quarenta minutos."
+  ],
+  "quests": [
+    "PROVAR PARA ELA",
+    "FAZER A GENTE DAR CERTO",
+    "CONSTRUIR UMA CASA",
+    "CASAR",
+    "TER FILHOS",
+    "MORAR COM ELA",
+    "LUTAR POR NÓS",
+    "ENVELHECER JUNTOS",
+    "ADOTAR O BRUNO (NÃO EXISTE)",
+    "APRENDER VIOLONCELO",
+    "DAR O NOME DELA A UMA ESTRELA",
+    "ENSINAR A JOSEPHINE A DIRIGIR",
+    "NAMORADA. ESPOSA. MULHER.",
+    "IR BUSCAR ELA PESSOALMENTE"
+  ],
+  "eta_lines": [
+    "CHEGADA: 40 MINUTOS",
+    "CHEGADA: AINDA 40 MINUTOS",
+    "CHEGADA: 40 MINUTOS. JÁ SE PASSARAM 40 MINUTOS.",
+    "CHEGADA: 40 MINUTOS (O CARRO NÃO SAIU DO LUGAR)",
+    "CHEGADA: 40 MINUTOS. ESTÁ FICANDO TARDE.",
+    "CHEGADA: 40 MINUTOS. ELA PERGUNTOU SE VOCÊ ESTAVA LIVRE."
+  ]
+}

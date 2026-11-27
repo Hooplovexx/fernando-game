@@ -1,0 +1,30 @@
+# The story factory. Runs in the game's site repo when the relay (worker/index.js) dispatches a tester's form:
+# writes their story.json, has GPT-6 Astra write every word (both languages), records the voices, mints their token,
+# and pushes it all to the site, updating stories/<slug>/status.json at every step so the /test/ page can count down.
+# deploy.sh copies this file into the site as .github/workflows/make_story.yml. Needs the repo secret OPENAI_API_KEY (worker/setup.sh).
+name: story factory
+on:
+  repository_dispatch:
+    types: [story]
+concurrency:
+  group: story-factory
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q openai
+      - name: make the game
+        run: bash factory/factory.sh

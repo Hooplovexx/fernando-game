@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your own 40 minutes away</title>
+<meta name="description" content="Give us your most ridiculous dating story. Eight minutes later it is a game in your language, with voices, at a link only you get.">
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #0b0716; color: #e9dcff; font: 17px/1.5 Georgia, "Times New Roman", serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 32px 22px 80px; }
+  h1 { font-size: 34px; letter-spacing: 2px; margin: 0; }
+  h1 small { display: block; font: 15px/1.4 Helvetica, Arial, sans-serif; letter-spacing: 5px; color: #f5a623; margin-top: 6px; }
+  h2 { font: 700 13px/1.4 Helvetica, Arial, sans-serif; letter-spacing: 3px; color: #f5a623; margin: 0 0 8px; text-transform: uppercase; }
+  p, li, label { color: #cdbfe8; }
+  .muted { color: #8f80b3; font: 14px/1.5 Helvetica, Arial, sans-serif; }
+  .card { background: #171029; border: 1px solid #2c2242; border-radius: 10px; padding: 16px 18px; margin: 14px 0; }
+  label { display: block; font: 700 13px/1.4 Helvetica, Arial, sans-serif; letter-spacing: 1px; margin: 14px 0 4px; color: #e9dcff; }
+  label span { display: block; font-weight: 400; color: #8f80b3; letter-spacing: 0; }
+  input, textarea, select { width: 100%; box-sizing: border-box; background: #0f0a1d; color: #e9dcff; border: 1px solid #3a2e55; border-radius: 6px; padding: 10px; font: 16px/1.4 Georgia, serif; }
+  textarea { min-height: 72px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .btn { display: inline-block; background: #f5a623; color: #1a1020; border: 0; cursor: pointer; font: 700 16px Helvetica, Arial, sans-serif; padding: 12px 18px; border-radius: 6px; margin: 10px 8px 0 0; text-decoration: none; }
+  .btn.alt { background: #2c2242; color: #e9dcff; }
+  .btn.big { font-size: 22px; padding: 16px 28px; letter-spacing: 2px; }
+  .btn[disabled] { opacity: .5; cursor: wait; }
+  #out, #wait, #ready, #err { display: none; }
+  #blob { min-height: 160px; font: 13px/1.4 Menlo, monospace; }
+  #err { color: #ff9a9a; font: 15px/1.5 Helvetica, Arial, sans-serif; margin-top: 10px; }
+  .lang-pt { display: none; }
+  body.pt .lang-en { display: none; }
+  body.pt .lang-pt { display: block; }
+  span.lang-pt, span.lang-en { display: none; }
+  body:not(.pt) span.lang-en { display: inline; }
+  body.pt span.lang-pt { display: inline; }
+  .toggle { font: 14px Helvetica, Arial, sans-serif; color: #f5a623; cursor: pointer; text-decoration: underline; }
+  #clock { font: 700 64px/1 Helvetica, Arial, sans-serif; letter-spacing: 4px; color: #f5a623; text-align: center; margin: 14px 0 4px; font-variant-numeric: tabular-nums; }
+  #clock.over { color: #cdbfe8; font-size: 28px; letter-spacing: 1px; }
+  .bar { height: 6px; background: #2c2242; border-radius: 3px; overflow: hidden; margin: 8px 0 18px; }
+  .bar i { display: block; height: 100%; width: 0; background: #f5a623; transition: width 1s linear; }
+  ol.steps { list-style: none; padding: 0; margin: 0; }
+  ol.steps li { padding: 8px 0 8px 34px; position: relative; color: #6f6390; font: 15px/1.4 Helvetica, Arial, sans-serif; }
+  ol.steps li::before { content: ""; position: absolute; left: 6px; top: 12px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #3a2e55; box-sizing: border-box; }
+  ol.steps li.now { color: #e9dcff; }
+  ol.steps li.now::before { border-color: #f5a623; background: #f5a623; box-shadow: 0 0 0 4px rgba(245,166,35,.25); animation: pulse 1.2s ease-in-out infinite; }
+  ol.steps li.done { color: #a596cc; }
+  ol.steps li.done::before { border-color: #7ed957; background: #7ed957; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 3px rgba(245,166,35,.2); } 50% { box-shadow: 0 0 0 8px rgba(245,166,35,.05); } }
+  #ready h2 { font-size: 20px; letter-spacing: 4px; text-align: center; margin: 6px 0 14px; }
+  #ready .center { text-align: center; }
+  #link { font: 13px/1.4 Menlo, monospace; word-break: break-all; color: #8f80b3; margin-top: 12px; }
+</style>
+</head>
+<body>
+<main data-worker="">
+  <h1>YOUR OWN 40 MINUTES AWAY<small>O SEU PRÓPRIO JOGO</small></h1>
+  <p class="toggle" onclick="document.body.classList.toggle('pt')">Português / English</p>
+
+  <div class="lang-en">
+    <p>You played Fernando. Now the same thing from <em>your</em> most ridiculous dating story: your names, your places, the things that were actually said, the excuses that were actually made, in your language, with voices. A ten-minute game you can send to the person it is about.</p>
+    <p class="muted">Fill in what you can. Short and true beats long and polished; the ridiculous bits are the point. Tap the button at the bottom and the countdown starts: about eight minutes later this page shows your link.</p>
+  </div>
+  <div class="lang-pt">
+    <p>Você jogou o Fernando. Agora a mesma coisa com a <em>sua</em> história de namoro mais ridícula: os seus nomes, os seus lugares, o que foi dito de verdade, as desculpas que foram dadas de verdade, na sua língua, com vozes. Um jogo de dez minutos para mandar para a pessoa de quem ele fala.</p>
+    <p class="muted">Preencha o que puder. Curto e verdadeiro vale mais que longo e bonito; as partes ridículas são o ponto. Toque no botão no fim e a contagem começa: uns oito minutos depois esta página mostra o seu link.</p>
+  </div>
+
+  <div class="card" id="form">
+    <div class="row">
+      <div><label>Him (the one who must drive) <span>Ele, o que precisa dirigir</span></label><input id="him" placeholder="Fernando"></div>
+      <div><label>Her (the one who waits) <span>Ela, a que espera</span></label><input id="her" placeholder="Jennifer"></div>
+    </div>
+    <div class="row">
+      <div><label>Minutes between you <span>Minutos entre vocês</span></label><input id="minutes" type="number" value="40"></div>
+      <div><label>Language of the game <span>Língua do jogo</span></label>
+        <select id="language">
+          <option value="pt">Português (Brasil)</option><option value="en">English only</option><option value="es">Español</option><option value="fr">Français</option>
+          <option value="de">Deutsch</option><option value="it">Italiano</option><option value="nl">Nederlands</option><option value="ja">日本語</option>
+          <option value="ko">한국어</option><option value="zh">中文</option><option value="ru">Русский</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="hi">हिन्दी</option><option value="mi">Te reo Māori</option>
+        </select></div>
+    </div>
+    <label>City <span>Cidade</span></label><input id="city" placeholder="Auckland">
+    <label>Two imagined children's names <span>Nomes de dois filhos imaginados</span></label><input id="kids" placeholder="Josephine, Johnny">
+    <label>What she asked, and what he did instead of coming over <span>O que ela perguntou, e o que ele fez em vez de ir</span></label><textarea id="premise"></textarea>
+    <label>How you met <span>Como se conheceram</span></label><textarea id="met"></textarea>
+    <label>A dark or enclosed place you went together, and what happened there <span>Um lugar escuro ou fechado onde foram juntos</span></label><textarea id="cave"></textarea>
+    <label>A walk, a park, a beach, a trail, and what was funny about it <span>Uma caminhada, parque, praia ou trilha</span></label><textarea id="bush"></textarea>
+    <label>A house, a view, a dream place that is not real yet <span>Uma casa, uma vista, um lugar de sonho que ainda não existe</span></label><textarea id="valley"></textarea>
+    <label>Things she actually says (one per line) <span>Coisas que ela diz de verdade, uma por linha</span></label><textarea id="her_lines"></textarea>
+    <label>Things he actually says or writes (one per line) <span>Coisas que ele diz ou escreve, uma por linha</span></label><textarea id="his_lines"></textarea>
+    <label>Inside jokes (one per line) <span>Piadas internas, uma por linha</span></label><textarea id="jokes"></textarea>
+    <label>The ways he stalls instead of coming (one per line) <span>Os jeitos de ele enrolar em vez de ir, um por linha</span></label><textarea id="excuses"></textarea>
+    <label>The ridiculous escalations you want in the game (one per line) <span>As escaladas ridículas que você quer no jogo</span></label><textarea id="absurd"></textarea>
+    <label>How it should end when he finally drives <span>Como deve terminar quando ele finalmente dirige</span></label><textarea id="ending"></textarea>
+    <label>Your name and how to reach you <span>Seu nome e como falar com você</span></label><input id="contact">
+    <button class="btn" id="go" onclick="submitStory()"><span class="lang-en">Make my game</span><span class="lang-pt">Fazer o meu jogo</span></button>
+    <div id="err"></div>
+  </div>
+
+  <div id="wait" class="card">
+    <h2><span class="lang-en">Countdown to your game</span><span class="lang-pt">Contagem regressiva para o seu jogo</span></h2>
+    <div id="clock">08:00</div>
+    <div class="bar"><i id="fill"></i></div>
+    <ol class="steps">
+      <li id="s1"><span class="lang-en">Your story arrived</span><span class="lang-pt">A sua história chegou</span></li>
+      <li id="s2"><span class="lang-en">Astra is writing every word, in both languages</span><span class="lang-pt">A Astra está escrevendo cada palavra, nas duas línguas</span></li>
+      <li id="s3"><span class="lang-en">Recording the voices</span><span class="lang-pt">Gravando as vozes</span></li>
+      <li id="s4"><span class="lang-en">Publishing your game</span><span class="lang-pt">Publicando o seu jogo</span></li>
+    </ol>
+    <p class="muted" id="waitnote"><span class="lang-en">Keep this page open, or come back to it: it remembers your game.</span><span class="lang-pt">Deixe esta página aberta, ou volte depois: ela lembra do seu jogo.</span></p>
+  </div>
+
+  <div id="ready" class="card">
+    <h2><span class="lang-en">Your game is ready</span><span class="lang-pt">O seu jogo está pronto</span></h2>
+    <p class="center"><a class="btn big" id="play" target="_blank" rel="noopener">PLAY · JOGAR</a></p>
+    <p class="center">
+      <button class="btn alt" onclick="copyLink()"><span class="lang-en">Copy the link</span><span class="lang-pt">Copiar o link</span></button>
+      <a class="btn alt" id="share" target="_blank" rel="noopener"><span class="lang-en">Send it to them</span><span class="lang-pt">Mandar pra pessoa</span></a>
+    </p>
+    <p class="muted"><span class="lang-en">Phone, sound on, tap twice to begin. The link is yours: only people you give it to can open it.</span><span class="lang-pt">No celular, com som, toque duas vezes para começar. O link é seu: só abre para quem você mandar.</span></p>
+    <div id="link"></div>
+  </div>
+
+  <div id="out" class="card">
+    <p class="muted lang-en">Copy this and send it back in the message that brought you here.</p>
+    <p class="muted lang-pt">Copie isto e mande de volta na mensagem que trouxe você aqui.</p>
+    <textarea id="blob" readonly></textarea>
+    <button class="btn" onclick="copyBlob()">Copy · Copiar</button>
+    <a class="btn alt" id="wa" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  <p class="muted"><span class="lang-en">Your story becomes the words and voices of your game, published at a link only you get. How to reach you goes to the maker only.</span><span class="lang-pt">A sua história vira as palavras e as vozes do seu jogo, publicado em um link que só você recebe. O seu contato vai só para quem faz o jogo.</span></p>
+</main>
+<script>
+var WORKER = (document.querySelector('main').getAttribute('data-worker') || '').replace(/\/$/, '');
+var SITE = location.origin + location.pathname.replace(/\/test\/?[^\/]*$/, '');
+var W = new URLSearchParams(location.search).get('w') || '';
+var JOB = null, TICK = null, POLL = null;
+if (/^pt/i.test(navigator.language || '')) document.body.classList.add('pt');
+
+function lines(id) { return document.getElementById(id).value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean); }
+function val(id) { return document.getElementById(id).value.trim(); }
+function $(id) { return document.getElementById(id); }
+function pt() { return document.body.classList.contains('pt'); }
+function say(en, p) { return pt() ? p : en; }
+
+function storyFromForm() {
+  var him = val('him') || 'Fernando', her = val('her') || 'Jennifer';
+  var slug = (him + '-' + her).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return {
+    slug: slug, title: him + ': ' + (val('minutes') || '40') + ' minutes away', language: val('language') || 'pt',
+    him: him, her: her, kids: (val('kids') || 'Josephine, Johnny').split(',').map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 2),
+    minutes: parseInt(val('minutes') || '40', 10), city: val('city'), premise: val('premise'), how_we_met: val('met'),
+    memories: { cave: val('cave'), bush: val('bush'), valley: val('valley') },
+    her_lines: lines('her_lines'), his_lines: lines('his_lines'), inside_jokes: lines('jokes'), his_excuses: lines('excuses'), absurd_bits: lines('absurd'),
+    her_voice: 'warm, dry, a little tired, talking to someone she loves who is being ridiculous',
+    his_voice: 'grave, sincere, deadpan, a man narrating his own epic romance with total conviction',
+    ending_wish: val('ending'), contact: val('contact'), tokens: {}
+  };
+}
+
+function submitStory() {
+  var story = storyFromForm();
+  $('err').style.display = 'none';
+  if (!val('him') || !val('her') || !val('premise')) {
+    return fail(say('Their two names and what she asked are the least it needs.', 'Os dois nomes e o que ela perguntou são o mínimo.'));
+  }
+  if (!WORKER) return makeBlock(story);
+  var b = $('go'); b.disabled = true;
+  fetch(WORKER + '/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ story: story, w: W }) })
+    .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+    .then(function (x) {
+      b.disabled = false;
+      if (!x.ok) return fail(x.j && x.j.error ? x.j.error : say('The factory did not answer.', 'A fábrica não respondeu.'));
+      JOB = { slug: x.j.slug, status: x.j.status, link: x.j.link, minutes: x.j.minutes || 8, t0: Date.now(), state: 'queued' };
+      try { localStorage.setItem('story_job', JSON.stringify(JOB)); } catch (e) {}
+      countdown();
+    })
+    .catch(function () { b.disabled = false; fail(say('No connection to the factory. Try again in a minute.', 'Sem conexão com a fábrica. Tente de novo em um minuto.')); });
+}
+
+function fail(msg) { var e = $('err'); e.textContent = msg; e.style.display = 'block'; }
+
+function countdown() {
+  $('form').style.display = 'none'; $('out').style.display = 'none'; $('ready').style.display = 'none';
+  $('wait').style.display = 'block';
+  $('wait').scrollIntoView({ behavior: 'smooth' });
+  setStep(JOB.state);
+  clearInterval(TICK); clearInterval(POLL);
+  tick(); TICK = setInterval(tick, 1000);
+  poll(); POLL = setInterval(poll, 15000);
+}
+
+function tick() {
+  var total = JOB.minutes * 60000, left = JOB.t0 + total - Date.now(), c = $('clock');
+  $('fill').style.width = Math.min(100, 100 * (1 - Math.max(0, left) / total)) + '%';
+  if (left > 0) {
+    var s = Math.ceil(left / 1000);
+    c.className = ''; c.textContent = ('0' + Math.floor(s / 60)).slice(-2) + ':' + ('0' + (s % 60)).slice(-2);
+  } else {
+    c.className = 'over';
+    var late = Date.now() - JOB.t0 - total;
+    c.textContent = late < 20 * 60000 ? say('Nearly there. Voices take their time.', 'Quase lá. As vozes demoram um pouco.')
+                                      : say('This one is slow. The maker has been told; keep the page.', 'Este está lento. Quem faz o jogo já sabe; guarde a página.');
+  }
+}
+
+function poll() {
+  if (!JOB) return;
+  fetch(JOB.status + '?v=' + Date.now(), { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (s) {
+      if (!s || !s.state) return;
+      JOB.state = s.state;
+      if (s.link) JOB.link = s.link;
+      try { localStorage.setItem('story_job', JSON.stringify(JOB)); } catch (e) {}
+      setStep(s.state, s.message);
+      if (s.state === 'done' && s.link) ready(s.link);
+      if (s.state === 'failed') { clearInterval(TICK); clearInterval(POLL); $('clock').className = 'over'; $('clock').textContent = say('The factory stopped on this one. The maker will finish it by hand.', 'A fábrica parou neste. Quem faz o jogo termina à mão.'); }
+    })
+    .catch(function () {});
+}
+
+function setStep(state) {
+  var n = { queued: 1, writing: 2, voices: 3, publishing: 4, done: 5, failed: 0 }[state] || 1;
+  for (var i = 1; i <= 4; i++) $('s' + i).className = i < n ? 'done' : (i === n ? 'now' : '');
+}
+
+function ready(link) {
+  clearInterval(TICK); clearInterval(POLL);
+  $('wait').style.display = 'none'; $('ready').style.display = 'block';
+  $('play').href = link; $('link').textContent = link;
+  $('share').href = 'https://wa.me/?text=' + encodeURIComponent(say('I made you a game. Phone, sound on, tap twice: ', 'Fiz um jogo pra você. No celular, com som, toque duas vezes: ') + link);
+  $('ready').scrollIntoView({ behavior: 'smooth' });
+  try { localStorage.removeItem('story_job'); } catch (e) {}
+}
+
+function copyLink() { try { navigator.clipboard.writeText($('play').href); } catch (e) {} }
+
+function makeBlock(story) {  // no relay yet: the old way, a block to send back by hand
+  var text = 'STORY ' + story.slug + '\n' + JSON.stringify(story, null, 1);
+  $('blob').value = text;
+  $('out').style.display = 'block';
+  $('wa').href = 'https://wa.me/?text=' + encodeURIComponent(text);
+  $('out').scrollIntoView({ behavior: 'smooth' });
+}
+function copyBlob() {
+  var b = $('blob'); b.select();
+  try { navigator.clipboard.writeText(b.value); } catch (e) { document.execCommand('copy'); }
+}
+
+// a game still being made when the page was closed: pick the countdown back up
+try {
+  var saved = JSON.parse(localStorage.getItem('story_job') || 'null');
+  if (saved && saved.slug && Date.now() - saved.t0 < 2 * 3600000) { JOB = saved; countdown(); }
+} catch (e) {}
+</script>
+</body>
+</html>
